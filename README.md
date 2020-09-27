@@ -1,5 +1,4 @@
-# kernel-oauth2-server
-Implementation of OAuth2 server for internal students' systems next to Physics and Applied Computer Science deputy of AGH Univeristy of Science and Technology with Node.JS, TypeScript and PostgreSQL.
+# ts-oauth2-docker-server
 
 ## Requirements
 
@@ -7,7 +6,7 @@ Following stuff must be installed to make app working properly:
 
 * [Node.js](http://nodejs.org) version 12.14.1
 
-You can also run server by Docker. More info [here](https://github.com/kni-kernel/kernel-oauth2-server/blob/master/DOCKER.md). 
+
 
 ## Development
 
@@ -33,3 +32,6 @@ Task            | Description
 `serve-debug`   | Runs `serve` via nodemon with debug flags
 `watch-debug`   | Concurrently runs `watch-ts` and `serve-debug`
 
+## Licesne 
+
+## Source 
