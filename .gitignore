@@ -9,7 +9,7 @@
 npm-debug.log
 
 # folders
-/dist
+#/dist
 /node_modules
 docs/_build/
 __pycache__/
