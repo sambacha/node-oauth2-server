@@ -1,0 +1,14 @@
+<%- include("partials/head.ejs") -%>
+<%- include("partials/navbar.ejs", { user: user } ) -%>
+<section class="section">
+    <div class="container">
+        <p class="is-size-3">Witaj w panelu użytkownika!</p>
+        <p>Username: <%= user.username %></p>
+        <p>Email: <%= user.email %></p>
+        <p>Pozycja: <%= user.privilege %></p>
+        <p>Kierunek: <%= user.fieldOfStudy %></p>
+        <p>Rok rozpoczęcia: <%= user.beginningYear %></p>
+        <p>Gdyby dane się nie zgadzały skontaktuj się z administracją!</p>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>

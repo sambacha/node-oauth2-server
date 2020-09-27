@@ -1,0 +1,55 @@
+<%- include("partials/head.ejs") -%>
+<%- include("partials/navbar.ejs", { user: user } ) -%>
+<section class="section">
+    <div class="container" style="max-width: 500px;">
+        <form action="/dashboard/user/import" method="post">
+            <div class="box is-bordered">
+                <p class="is-size-5">Importuj użytkownika</p>
+
+                <div class="field" style="margin-top: 20px;">
+                    <label class="label" for="beginningYear">Rocznik do zaimportowania</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="beginningYear" value="<%= (new Date()).getFullYear() %>">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-calendar"></i>
+                        </span>
+                    </div>
+                    <p>Uwaga: Jest to rocznik rozpoczęcia studiów inżynierskich!</p>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="taurusLogin">Login do Taurusa</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="taurusLogin" placeholder="Login...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="taurusPassword">Hasło do Taurusa</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" name="taurusPassword" placeholder="Hasło...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <p class="has-text-danger">Operacja importowania może długo potrwać i jest zależna od podania poprawnych credentiali do Taurusa!</p>
+
+                <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-dark is-fullwidth">
+                            Importuj!
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>

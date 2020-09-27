@@ -1,0 +1,67 @@
+<%- include("partials/head.ejs") -%>
+<%- include("partials/navbar.ejs", { user: user } ) -%>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-three-quarters">
+                <p class="is-size-3">Lista użytkowników</p>
+            </div>
+            <div class="column">
+                <form action="/dashboard/user/list" method="post">
+                    <div class="control has-icons-left">
+                        <input class="input is-rounded" type="text" name="search" placeholder="Search...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Kierunek</th>
+                    <th>Rok rozpoczęcia</th>
+                    <th>Pozycja</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(userData => { %>
+                    <tr>
+                        <td>
+                            <%= userData.id %>
+                        </td>
+                        <td>
+                            <%= userData.username %>
+                        </td>
+                        <td>
+                            <%= userData.email %>
+                        </td>
+                        <td>
+                            <%= userData.fieldOfStudy %>
+                        </td>
+                        <td>
+                            <%= userData.beginningYear %>
+                        </td>
+                        <td>
+                            <%= userData.privilege %>
+                        </td>
+                        <td>
+                            <% if ((user.privilege === "Foreman" && userData.privilege !== "Admin") || user.privilege === "Admin") { %>
+                                <a href="/dashboard/user/edit/<%=userData.id%>">Edytuj</a>
+                            <% } else { %>
+                            -
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>

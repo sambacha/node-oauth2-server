@@ -1,0 +1,90 @@
+<%- include("partials/head.ejs") -%>
+<%- include("partials/navbar.ejs", { user: user } ) -%>
+<section class="section">
+    <div class="container" style="max-width: 500px;">
+        <form action="/dashboard/user/edit" method="post">
+            <div class="box is-bordered">
+                <p class="is-size-5">Dodaj użytkownika</p>
+
+                <div class="field" style="margin-top: 20px;">
+                    <label class="label" for="username">Username</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="username" value="<%= userData.username %>">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="email">Email</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="email" name="email" value="<%= userData.email %>">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="password">Hasło</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" name="password" placeholder="Hasło...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <% if (user.privilege === "Admin") { %>
+                    <div class="field">
+                        <label class="label" for="beginningYear">Rok rozpoczęcia</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" name="beginningYear" placeholder="Rok rozpoczęcia..." value="<%= userData.beginningYear %>">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="fieldOfStudy">Kierunek</label>
+                        <div class="select">
+                            <select name="fieldOfStudy">
+                                <option value="AppliedCS" <%= userData.fieldOfStudy === "AppliedCS" ? "selected" : "" %>>Informatyka Stosowana</option>
+                                <option value="TechnicalPH" <%= userData.fieldOfStudy === "TechnicalPH" ? "selected" : "" %>>Fizyka Techniczna</option>
+                                <option value="MedicalPH" <%= userData.fieldOfStudy === "MedicalPH" ? "selected" : "" %>>Fizyka Medyczna</option>
+                                <option value="NanoTech" <%= userData.fieldOfStudy === "NanoTech" ? "selected" : "" %>>Mikro- i Nanotechnologie w biofizyce</option>
+                                <option value="NanoInz" <%= userData.fieldOfStudy === "NanoInz" ? "selected" : "" %>>Nanoinżynieria materiałów</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="email">Pozycja</label>
+                        <div class="select">
+                            <select name="privilege">
+                                <option value="Student" <%= userData.privilege === "Student" ? "selected" : "" %>>Student</option>
+                                <option value="Foreman" <%= userData.privilege === "Foreman" ? "selected" : "" %>>Starosta</option>
+                                <option value="Admin" <%= userData.privilege === "Admin" ? "selected" : "" %>>Admin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                <% } %>
+
+                <input type="hidden" name="id" value="<%= userData.id %>" />
+                <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-dark is-fullwidth">
+                            Zapisz!
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>

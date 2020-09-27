@@ -1,0 +1,89 @@
+<%- include("partials/head.ejs") -%>
+<%- include("partials/navbar.ejs", { user: user } ) -%>
+<section class="section">
+    <div class="container" style="max-width: 500px;">
+        <form action="/dashboard/user/add" method="post">
+            <div class="box is-bordered">
+                <p class="is-size-5">Dodaj użytkownika</p>
+
+                <div class="field" style="margin-top: 20px;">
+                    <label class="label" for="username">Username</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="username" placeholder="Username...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="email">Email</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="email" name="email" placeholder="Email...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="password">Hasło</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" name="password" placeholder="Hasło...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <% if (user.privilege === "Admin") { %>
+                    <div class="field">
+                        <label class="label" for="beginningYear">Rok rozpoczęcia</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" name="beginningYear" placeholder="Rok rozpoczęcia..." value="<%= (new Date()).getFullYear() %>">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="fieldOfStudy">Kierunek</label>
+                        <div class="select">
+                            <select name="fieldOfStudy">
+                                <option value="AppliedCS">Informatyka Stosowana</option>
+                                <option value="TechnicalPH">Fizyka Techniczna</option>
+                                <option value="MedicalPH">Fizyka Medyczna</option>
+                                <option value="NanoTech">Mikro- i Nanotechnologie w biofizyce</option>
+                                <option value="NanoInz">Nanoinżynieria materiałów</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="email">Pozycja</label>
+                        <div class="select">
+                            <select name="privilege">
+                                <option value="Student">Student</option>
+                                <option value="Foreman">Starosta</option>
+                                <option value="Admin">Administrator</option>
+                            </select>
+                        </div>
+                    </div>
+
+                <% } %>
+
+                <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-dark is-fullwidth">
+                            Zapisz!
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>

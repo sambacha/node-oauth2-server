@@ -1,0 +1,55 @@
+<%- include("partials/head.ejs") -%>
+<%- include("partials/navbar.ejs", { user: user } ) -%>
+<section class="section">
+    <div class="container" style="max-width: 500px;">
+        <form action="/dashboard/user/change" method="post">
+            <div class="box is-bordered">
+                <p class="is-size-5">Edytuj swoje dane</p>
+
+                <div class="field" style="margin-top: 20px;">
+                    <label class="label" for="username">Username</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="username" value="<%= user.username %>">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <p>Jeśli nie zmieniasz - zostaw ten sam username!</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="email">Email</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="email" name="email" value="<%= user.email %>">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <p>Jeśli nie zmieniasz - zostaw ten sam adres email!</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="password">Hasło</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="password" name="password" placeholder="Hasło...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <p>Pozostaw puste, jeśli nie chcesz zmieniać...</p>
+                    </div>
+                </div>
+
+                <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-dark is-fullwidth">
+                            Zapisz!
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>

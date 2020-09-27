@@ -1,0 +1,62 @@
+<%- include("partials/head.ejs") -%>
+<section class="section has-background-dark is-paddingless">
+    <div class="container">
+        <div class="fluid">
+            <h1 class="is-size-1 has-text-centered has-text-light">
+                WFiIS Single Sign-On
+            </h1>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container" style="max-width: 500px;">
+        <form action="<%= action %>" method="post">
+            <div class="box is-bordered">
+                <p class="is-size-5">Zaloguj się swoim kontem</p>
+
+                <div class="field" style="margin-top: 20px;">
+                    <label class="label" for="email">Nazwa użytkownika</label>
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" name="username" placeholder="Nazwa użytkownika...">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="password">Hasło</label>
+                    <p class="control has-icons-left">
+                        <input class="input" type="password" name="password" placeholder="Hasło...">
+                        <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    </p>
+                </div>
+
+                <% if (isOauth) { %>
+                    <input type="hidden" name="redirect" value="<%= redirect %>" />
+                    <input type="hidden" name="client_id" value="<%= clientId %>" />
+                    <input type="hidden" name="redirect_uri" value="<%= redirectUri %>" />
+                    <input type="hidden" name="response_type" value="<%= responseType %>" />
+                    <input type="hidden" name="state" value="<%= csrf %>" />
+                <% } else { %>
+                    <input type="hidden" name="_csrf" value="<%= csrf %>" />
+                <% } %>
+
+                <% if (wrongCreds) { %>
+                    <p class="has-text-danger">Podane błędne dane logowania! Spróbuj ponownie!</p>
+                <% } %>
+
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-dark is-fullwidth">
+                            Zaloguj!
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include("partials/footer.ejs") -%>
