@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
 # oauth2-server
 
 [![npm Version][npm-image]][npm-url]
