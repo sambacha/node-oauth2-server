@@ -1,0 +1,31 @@
+{
+  "name": "oauth2-server-ts",
+  "description": "Complete, framework-agnostic, compliant and well tested module for implementing an OAuth2 Server in node.js",
+  "version": "6.0.0+alpha",
+  "keywords": [
+    "oauth",
+    "oauth2"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/oauthjs/node-oauth2-server.git",
+    "type": "git"
+  },
+  "dependencies": {
+    "@types/basic-auth": "^1.1.2",
+    "@types/node": "^11.15.3",
+    "@types/statuses": "^1.5.0",
+    "@types/type-is": "^1.6.3",
+    "basic-auth": "^2.0.1",
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.20",
+    "promisify-any": "^2.0.1",
+    "statuses": "^2.0.0",
+    "tslib": "^1.10.0",
+    "type-is": "^1.6.18"
+  }
+}
