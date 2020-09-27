@@ -1,3 +1,7 @@
+# This project is seeking maintainers and reviewers
+
+## The currently released version is now significantly out of date. The project has been rewritten in typescript ([#564](https://github.com/oauthjs/node-oauth2-server/pull/564)), we're now working in the [v5-dev](https://github.com/oauthjs/node-oauth2-server/tree/v5-dev) branch and we're seeking further review, testing and documentation - any help with this popular project would be hugely appreciated, anyone providing consistent help will be promoted to collaborator.
+
 # oauth2-server
 
 [![npm Version][npm-image]][npm-url]
@@ -36,7 +40,7 @@ The *oauth2-server* module is framework-agnostic but there are several officiall
 
 Most users should refer to our [Express](https://github.com/oauthjs/express-oauth-server/tree/master/examples) or [Koa](https://github.com/oauthjs/koa-oauth-server/tree/master/examples) examples.
 
-Examples for v3 are yet to be made. 
+More examples can be found here: https://github.com/14gasher/oauth-example
 
 ## Upgrading from 2.x
 
