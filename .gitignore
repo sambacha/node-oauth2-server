@@ -1,5 +1,24 @@
-node_modules/
+
+# IDE
+/.idea
+/.awcache
+/.vscode/*.code-workspace
+/.vscode/settings.json
+
+# misc
+npm-debug.log
+
+# folders
+/dist
+/node_modules
 docs/_build/
 __pycache__/
-*.pyc
 
+# files
+.DS_Store
+*.pyc
+/aio
+
+# codecoverage
+/.nyc_output
+/coverage
