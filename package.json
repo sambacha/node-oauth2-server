@@ -30,6 +30,10 @@
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/sinon": "^7.5.1",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "4.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.0",
     "mocha": "^6.2.2",
     "npm-run-all": "^4.1.5",
     "should": "^13.2.3",
@@ -46,6 +50,7 @@
     "@types/type-is": "^1.6.3",
     "basic-auth": "^2.0.1",
     "bluebird": "^3.7.2",
+    "eslint": "7.0.0",
     "lodash": "^4.17.20",
     "promisify-any": "^2.0.1",
     "statuses": "^2.0.0",
