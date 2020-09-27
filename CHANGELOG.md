@@ -1,9 +1,34 @@
 ## Changelog
 
+<<<<<<< HEAD
+### 5.0.0
+* BREAKING: Remove support for node v6
+* BREAKING: Remove support for callbacks only support native Promises
+* new: Rewrote in TypeScript
+* new: Switch from Eslint to Tslint
+* new: added .vscode folder for recommend extensions and recommend setting required for development
+* new: added suitable TypeScript Interfaces for various Objects
+
+### 4.0.0
+* BREAKING: Set server_error Code to 500
+* BREAKING: Remove support for node v4
+* new: Added revoke-handler to revoke access token
+* new: Added implicit grant flow
+* new: Switch from jshint to eslin
+* fix: authorization_code grant should not be required in implicit flowt
+
+### 3.1.0
+* new: Added package-lock.json
+* new: Extend model object with request context
+* new: .npmignore tests
+* fix: validate requested scope on authorize request
+* fix: issue correct expiry dates for tokens
+=======
 ### 3.1.0
 * new: .npmignore tests
 * fix: validate requested scope on authorize request
 * fix: always issue correct expiry dates for tokens
+>>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
 * fix: set numArgs for promisify of generateAuthorizationCode
 * fix: Changed 'hasOwnProperty' call in Response
 * docs: Ensure accessTokenExpiresAt is required
@@ -12,6 +37,12 @@
 * readme: Update Slack badge and link
 * readme: Fix link to RFC6750 standard
 
+<<<<<<< HEAD
+### 3.0.1
+* Updated dependencies
+
+### 3.0.0
+=======
 ### 3.0.2 (24/05/2020)
 
 * Update all dependencies 🎉
@@ -23,6 +54,7 @@
 Tag never released on npm
 
 ### 3.0.0 (04/08/2017)
+>>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
 * Complete re-write, with Promises and callback support
 * Dropped support for node v0.8, v0.10, v0.12
 * Supports Node v4, v6, v7, and v8.  Will continue support for node current and active LTS versions
