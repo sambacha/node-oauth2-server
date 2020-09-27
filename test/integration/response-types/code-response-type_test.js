@@ -6,6 +6,8 @@
 
 var CodeResponseType = require('../../../lib/response-types/code-response-type');
 var InvalidArgumentError = require('../../../lib/errors/invalid-argument-error');
+var InvalidRequestError = require('../../../lib/errors/invalid-request-error');
+var Request = require('../../../lib/request');
 var Promise = require('bluebird');
 var should = require('should');
 var sinon = require('sinon');
@@ -220,11 +222,11 @@ describe('CodeResponseType integration', function() {
       };
       var handler = new CodeResponseType({ authorizationCodeLifetime: 120, model: model });
 
-      return handler.saveAuthorizationCode('foo', 'bar', 'qux', 'biz', 'baz', 'boz')
+      return handler.saveAuthorizationCode('foo', 'bar', 'qux', 'biz', 'baz', 'boz', 'buz', 'bez')
         .then(function() {
           model.saveAuthorizationCode.callCount.should.equal(1);
           model.saveAuthorizationCode.firstCall.args.should.have.length(3);
-          model.saveAuthorizationCode.firstCall.args[0].should.eql({ authorizationCode: 'foo', expiresAt: 'bar', redirectUri: 'baz', scope: 'qux' });
+          model.saveAuthorizationCode.firstCall.args[0].should.eql({ authorizationCode: 'foo', expiresAt: 'bar', redirectUri: 'baz', scope: 'qux', codeChallenge: 'buz', codeChallengeMethod: 'bez' });
           model.saveAuthorizationCode.firstCall.args[1].should.equal('biz');
           model.saveAuthorizationCode.firstCall.args[2].should.equal('boz');
         })
@@ -247,6 +249,83 @@ describe('CodeResponseType integration', function() {
           model.generateAuthorizationCode.callCount.should.equal(1);
         })
         .catch(should.fail);
+    });
+  });
+
+  describe('getCodeChallenge()', function() {
+    describe('with `code_challenge` in the request body', function() {
+      it('should return the code_challenge', function() {
+        var model = {
+          getAccessToken: function() {},
+          getClient: function() {},
+          saveAuthorizationCode: function() {}
+        };
+        var handler = new CodeResponseType({ authorizationCodeLifetime: 120, model: model });
+        var request = new Request({ body: { code_challenge: 'foo' }, headers: {}, method: {}, query: {} });
+
+        handler.getCodeChallenge(request).should.equal('foo');
+      });
+    });
+
+    describe('with `code_challenge` in the request query', function() {
+      it('should return the code_challenge', function() {
+        var model = {
+          getAccessToken: function() {},
+          getClient: function() {},
+          saveAuthorizationCode: function() {}
+        };
+        var handler = new CodeResponseType({ authorizationCodeLifetime: 120, model: model });
+        var request = new Request({ body: {}, headers: {}, method: {}, query: { code_challenge: 'foo' } });
+
+        handler.getCodeChallenge(request).should.equal('foo');
+      });
+    });
+  });
+
+  describe('getCodeChallengeMethod()', function() {
+    it('should throw an error if `code_challenge_method` is invalid', function() {
+      var model = {
+        getAccessToken: function() {},
+        getClient: function() {},
+        saveAuthorizationCode: function() {}
+      };
+      var handler = new CodeResponseType({ authorizationCodeLifetime: 120, model: model });
+      var request = new Request({ body: { code_challenge_method: 'foo' }, headers: {}, method: {}, query: {} });
+
+      try {
+        handler.getCodeChallengeMethod(request);
+        should.fail();
+      } catch (e) {
+        e.should.be.an.instanceOf(InvalidRequestError);
+        e.message.should.equal('Invalid parameter: `code_challenge_method`, use S256 instead');
+      }
+    });
+    describe('with `code_challenge_method` in the request body', function() {
+      it('should return the code_challenge_method', function() {
+        var model = {
+          getAccessToken: function() {},
+          getClient: function() {},
+          saveAuthorizationCode: function() {}
+        };
+        var handler = new CodeResponseType({ authorizationCodeLifetime: 120, model: model });
+        var request = new Request({ body: { code_challenge_method: 'plain' }, headers: {}, method: {}, query: {} });
+
+        handler.getCodeChallengeMethod(request).should.equal('plain');
+      });
+    });
+
+    describe('with `code_challenge_method` in the request query', function() {
+      it('should return the code_challenge_method', function() {
+        var model = {
+          getAccessToken: function() {},
+          getClient: function() {},
+          saveAuthorizationCode: function() {}
+        };
+        var handler = new CodeResponseType({ authorizationCodeLifetime: 120, model: model });
+        var request = new Request({ body: {}, headers: {}, method: {}, query: { code_challenge_method: 'S256' } });
+
+        handler.getCodeChallengeMethod(request).should.equal('S256');
+      });
     });
   });
 });
