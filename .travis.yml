@@ -1,18 +1,15 @@
+# travis
+os: linux
+dist: xenial
+
 language: node_js
-
 node_js:
-<<<<<<< HEAD
-  - 8
-  - 10
-  - 12
-=======
-  - 4
-  - 6
-  - 8
-  - 10
-  - 12
-  - 13
-  - 14
->>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
+- '10'
+- '12'
 
-sudo: false
+git:
+  quiet: true
+  
+install: npm install
+
+scripts: true
