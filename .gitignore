@@ -17,13 +17,11 @@ __pycache__/
 # files
 .DS_Store
 *.pyc
-<<<<<<< HEAD
 /aio
 
 # codecoverage
 /.nyc_output
 /coverage
-=======
 lib-cov
 *.seed
 *.log
@@ -56,4 +54,4 @@ tramp
 # Org-mode
 .org-id-locations
 *_archive
->>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
+
