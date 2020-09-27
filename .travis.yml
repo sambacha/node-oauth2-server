@@ -1,7 +1,7 @@
-
 # travis
 os: linux
 dist: xenial
+
 
 language: node_js
 node_js:
@@ -10,3 +10,8 @@ node_js:
 
 git:
   quiet: true
+  
+install: npm install
+
+scripts: true
+

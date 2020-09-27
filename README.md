@@ -1,3 +1,4 @@
+
 # oauth2-server
 
 [![npm Version][npm-image]][npm-url]
@@ -8,6 +9,7 @@
 
 Complete, compliant and well tested module for implementing an OAuth2 server in [Node.js](https://nodejs.org).
 
+Note: After a period of hiatus, this project is now back under active maintenance. Dependencies have been updated and bug fixes will land in v3 (current master). v4 will be _mostly backwards compatible_ with no code changes required for users using a supported node release. More details in [#621](https://github.com/oauthjs/node-oauth2-server/issues/621).
 
 ## Installation
 
@@ -36,7 +38,7 @@ The *oauth2-server* module is framework-agnostic but there are several officiall
 
 Most users should refer to our [Express](https://github.com/oauthjs/express-oauth-server/tree/master/examples) or [Koa](https://github.com/oauthjs/koa-oauth-server/tree/master/examples) examples.
 
-Examples for v3 are yet to be made. 
+More examples can be found here: https://github.com/14gasher/oauth-example
 
 ## Upgrading from 2.x
 

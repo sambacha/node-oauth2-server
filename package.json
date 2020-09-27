@@ -1,46 +1,10 @@
 {
-  "name": "oauth2-server",
+  "name": "oauth2-server-ts",
   "description": "Complete, framework-agnostic, compliant and well tested module for implementing an OAuth2 Server in node.js",
-  "version": "5.0.0-dev.0",
+  "version": "6.0.0+alpha",
   "keywords": [
     "oauth",
     "oauth2"
-  ],
-  "contributors": [
-    {
-      "name": "Thom Seddon",
-      "email": "thom@seddonmedia.co.uk"
-    },
-    {
-      "name": "Lars F. Karlström",
-      "email": "lars@lfk.io"
-    },
-    {
-      "name": "Rui Marinho",
-      "email": "ruipmarinho@gmail.com"
-    },
-    {
-      "name": "Tiago Ribeiro",
-      "email": "tiago.ribeiro@gmail.com"
-    },
-    {
-      "name": "Michael Salinger",
-      "email": "mjsalinger@gmail.com"
-    },
-    {
-      "name": "Nuno Sousa"
-    },
-    {
-      "name": "Max Truxa"
-    },
-    {
-      "name": "Jonathon Hill",
-      "email": "jhill9693@gmail.com"
-    },
-    {
-      "name": "Marco Lüthy",
-      "email": "marco.luethy@gmail.com"
-    }
   ],
   "main": "index.ts",
   "engines": {
@@ -81,7 +45,10 @@
     "@types/statuses": "^1.5.0",
     "@types/type-is": "^1.6.3",
     "basic-auth": "^2.0.1",
-    "statuses": "^1.5.0",
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.20",
+    "promisify-any": "^2.0.1",
+    "statuses": "^2.0.0",
     "tslib": "^1.10.0",
     "type-is": "^1.6.18"
   }
