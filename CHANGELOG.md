@@ -1,5 +1,6 @@
 ## Changelog
 
+<<<<<<< HEAD
 ### 5.0.0
 * BREAKING: Remove support for node v6
 * BREAKING: Remove support for callbacks only support native Promises
@@ -22,6 +23,12 @@
 * new: .npmignore tests
 * fix: validate requested scope on authorize request
 * fix: issue correct expiry dates for tokens
+=======
+### 3.1.0
+* new: .npmignore tests
+* fix: validate requested scope on authorize request
+* fix: always issue correct expiry dates for tokens
+>>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
 * fix: set numArgs for promisify of generateAuthorizationCode
 * fix: Changed 'hasOwnProperty' call in Response
 * docs: Ensure accessTokenExpiresAt is required
@@ -30,10 +37,24 @@
 * readme: Update Slack badge and link
 * readme: Fix link to RFC6750 standard
 
+<<<<<<< HEAD
 ### 3.0.1
 * Updated dependencies
 
 ### 3.0.0
+=======
+### 3.0.2 (24/05/2020)
+
+* Update all dependencies 🎉
+
+### 3.0.1 (27/08/2018)
+
+* Doc fixes
+
+Tag never released on npm
+
+### 3.0.0 (04/08/2017)
+>>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
 * Complete re-write, with Promises and callback support
 * Dropped support for node v0.8, v0.10, v0.12
 * Supports Node v4, v6, v7, and v8.  Will continue support for node current and active LTS versions

@@ -17,8 +17,43 @@ __pycache__/
 # files
 .DS_Store
 *.pyc
+<<<<<<< HEAD
 /aio
 
 # codecoverage
 /.nyc_output
 /coverage
+=======
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.iml
+
+.idea
+.jshint
+.DS_Store
+
+pids
+logs
+results
+
+lib/dockerImage/keys
+coverage
+npm-debug.log*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+>>>>>>> e11930b8c35537b10f965c7390d7fe58622ba0f8
